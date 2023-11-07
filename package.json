@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:mainPage": "cypress run --record --group mainPage --spec 'cypress/e2e/mainPage.cy.js' --ci-build-id 7",
+    "test:bookMovie": "cypress run --record --group bookMovie --spec 'cypress/e2e/bookMovieUI.cy.js' --ci-build-id 7",
+    "test:adminAcc": "cypress run --record --group adminAcc --spec 'cypress/e2e/adminAcc.cy.js' --ci-build-id 7",
+    "test:parallel": "npm run test:mainPage & npm run test:bookMovie & npm run test:adminAcc"
   },
   "keywords": [],
   "author": "",
