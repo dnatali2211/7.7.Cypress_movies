@@ -5,15 +5,21 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:mainPage": "cypress run --record --group mainPage --spec 'cypress/e2e/mainPage.cy.js' --ci-build-id 7",
-    "test:bookMovie": "cypress run --record --group bookMovie --spec 'cypress/e2e/bookMovieUI.cy.js' --ci-build-id 7",
-    "test:adminAcc": "cypress run --record --group adminAcc --spec 'cypress/e2e/adminAcc.cy.js' --ci-build-id 7",
-    "test:parallel": "npm run test:mainPage & npm run test:bookMovie & npm run test:adminAcc"
+    "test:chrome": "cypress run --browser chrome",
+    "test:firefox": "cypress run --browser firefox",
+    "test:electron": "cypress run --browser electron",
+    "test:admin:chrome": "cypress run --record --group admin --spec 'cypress/e2e/admin/*.cy.js' --browser chrome",
+    "test:user:chrome": "cypress run --record --group user --spec 'cypress/e2e/user/*.cy.js' --browser chrome",
+    "test:parallel:chrome": "run-p -c test:admin:chrome test:user:chrome",
+    "test:admin:firefox": "cypress run --record --group admin --spec 'cypress/e2e/admin/*.cy.js' --browser firefox",
+    "test:user:firefox": "cypress run --record --group user --spec 'cypress/e2e/user/*.cy.js' --browser firefox",
+    "test:parallel:firefox": "run-p -c test:admin:firefox test:user:firefox"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.4.0"
+    "cypress": "^13.4.0",
+    "npm-run-all": "^4.1.5"
   }
 }

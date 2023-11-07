@@ -1,4 +1,4 @@
-import dataTests from "../fixtures/credentials.json";
+import dataTests from "../../fixtures/credentials.json";
 
 describe("main page", () => {
   it("should open main page", () => {

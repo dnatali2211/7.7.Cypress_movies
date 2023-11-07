@@ -1,5 +1,5 @@
-import dataTests from "../fixtures/credentials.json";
-import seats from "../fixtures/seats.json";
+import dataTests from "../../fixtures/credentials.json";
+import seats from "../../fixtures/seats.json";
 
 describe("main page", () => {
   it("should open main page", () => {
